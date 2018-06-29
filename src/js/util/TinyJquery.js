@@ -1,9 +1,9 @@
 class TinyJquery {
     constructor(el) {
         let $el
-        if(typeof el == 'string') {
+        if(typeof el === 'string') {
             $el = document.querySelectorAll(el)
-        } else if(typeof el == 'array' || el.length) {
+        } else if(typeof el === 'array' || el.length) {
             $el = el
         } else {
             $el = [el]
@@ -85,7 +85,7 @@ class TinyJquery {
     }
     // set inline style
     css(obj, pseudoElt = null) {
-        if(typeof obj == 'string') {
+        if(typeof obj === 'string') {
             if(window.getComputedStyle) {
                 return window.getComputedStyle(this.$el[0], pseudoElt)[obj]
             } else {
@@ -134,12 +134,12 @@ class TinyJquery {
     // get JSONData
     serializeObject() {
         let obj = {}
-        this.$el[0].querySelectorAll('input').forEach(i => {
-            if($(i).attr('type') == 'radio') {
+        this.find('input').forEach(i => {
+            if($(i).attr('type') === 'radio') {
                 if(i.checked) {
                     obj[$(i).attr('name')] = $(i).attr('value')
                 }
-            } else if($(i).attr('type') == 'checkbox') {
+            } else if($(i).attr('type') === 'checkbox') {
                 if(i.checked) {
                     if(obj[$(i).attr('name')]) {
                         obj[$(i).attr('name')].push($(i).attr('value'))
@@ -163,10 +163,21 @@ class TinyJquery {
         var a = [];
         var p = dom.parentNode.children;
         for (var i = 0, pl = p.length; i < pl; i++) {
-            if (p[i] !== dom) a.push(p[i]);
+            if (p[i] !=== dom) a.push(p[i]);
         }
         // console.log(Array.isArray(a))
         return $(a)
+    }
+    // find
+    find(cssSelector) {
+        return $(this.$el.getDom().querySelectorAll(cssSelector))
+    }
+    // eq
+    eq(index) {
+        if(idnex < 0) {
+            return $(this.$el[this.$el.length - 1])
+        }
+        return $(this.$el[index])
     }
     // get html dom
     getDom() {
@@ -203,7 +214,7 @@ class TinyJquery {
     }
     // get the el's height
     height() {
-        if(this.$el[0] == window) {
+        if(this.$el[0] === window) {
             return window.innerHeight
         } else {
             return this.$el[0].offsetHeight
@@ -211,7 +222,7 @@ class TinyJquery {
     }
     // get the el's width
     width() {
-        if(this.$el[0] == window) {
+        if(this.$el[0] === window) {
             return window.innerWidth
         } else {
             return this.$el[0].offsetWidth

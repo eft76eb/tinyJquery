@@ -43,7 +43,7 @@ export function get(url, success){
         url,
         method: 'get',
         success: function(responseText) {
-            success(responseText)
+            if(success) success(responseText)
         }
     })
 }
@@ -62,7 +62,7 @@ export function post(url, data, success) {
         method: 'post',
         data,
         success: function(responseText) {
-            success(responseText)
+            if(success) success(responseText)
         }
     })
 }
