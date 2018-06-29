@@ -38,7 +38,7 @@ import $ from './js/tinyJquery.min.js'
 # Method
 Use `$('cssSelector')` or `$(nativeDomObject)` or `$(nativeDomObjectArray)` or `$(arrayLikeObject)` to generate a `TinyJquery` obejct.  
 For example:
-    `$('div')`, `$('.box')`, `$('#target')`, `$(document.getElementById('#target'))`, `$(document.getElementsByClassName('box'))`, `document.querySelectorAll('.box')`...
+    `$('div')`, `$('.box')`, `$('#target')`, `$(document.getElementById('#target'))`, `$(document.getElementsByClassName('box'))`, `$(document.querySelectorAll('.box'))`...
 <table>
 <thead>
 <tr>
@@ -85,12 +85,12 @@ For example:
 </tr>
 <tr>
 <td>val</td>
-<td style="text-align:center">[value]</td>
+<td style="text-align:center">[ value ]</td>
 <td>val</td>
 </tr>
 <tr>
 <td>html</td>
-<td style="text-align:center">[html]</td>
+<td style="text-align:center">[ html ]</td>
 <td>html</td>
 </tr>
 <tr>
@@ -102,6 +102,16 @@ For example:
 <td>parent</td>
 <td style="text-align:center">------</td>
 <td>parent</td>
+</tr>
+<tr>
+<td>eq</td>
+<td style="text-align:center">index</td>
+<td>eq</td>
+</tr>
+<tr>
+<td>find</td>
+<td style="text-align:center">cssSelector</td>
+<td>find</td>
 </tr>
 <tr>
 <td>getDom</td>
